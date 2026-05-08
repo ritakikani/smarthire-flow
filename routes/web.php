@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobApplicationController;
 
+Route::middleware(['auth'])->group(function () {
+    Route::resource('job_applications', JobApplicationController::class);
+});
 Route::get('/', function () {
     return view('welcome');
 });
